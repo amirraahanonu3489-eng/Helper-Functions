@@ -39,10 +39,21 @@ const linksContainer = document.createElement("div");
 linksContainer.innerHTML = `
     <span style="color: white; margin-right: 15px;">Returns & Orders</span>
     <span style="color: white;">🛒 Cart</span>
+    <span style="color: yellow;">8</span>
 `;
 header.appendChild(linksContainer);
 
 root.appendChild(header);
+
+const main = document.createElement("main");
+main.style.display = "flex";
+main.style.alignItems = "center";
+main.style.backgroundColor = "white";
+
+const content = document.createElement("div");
+
+
+root.appendChild(main);
 
 function createAlertMessage() {
   alert("This is an alert message!");
@@ -62,6 +73,22 @@ function multiply(a, b) {
 
 createAlertMessage();
 
-console.log(getWelcomeMessage("Mira"));
-console.log("10 / 2 =", divide(10, 2));
-console.log("4 x 3 =", multiply(4, 3));
+console.log(getWelcomeMessage("Mira")); // "Welcome, Mira!"
+console.log("10 / 2 =", divide(10, 2)); // 5
+console.log("4 x 3 =", multiply(4, 3)); // 12
+
+//* I could also add innerHTML, "header.innerHTML = `...` " but I wanted to practice creating elements and styling them with JS.
+
+//*I would need to add the JavaScript style (cdn) in the HTML file to see the changes in the browser. Then in my js file I would 
+// need to link the HTML file with "document.getElementById" to see the changes in the browser. Then I would create an element
+// with "document.createElement" and then I could use header.innerHTML = `...` to add the HTML structure inside the header element.
+//* Finally I would append the header to the root element with "root.appendChild(header)".
+
+//* This would look like this: 
+// const root = document.getElementById("root");
+// const header = document.createElement("header");  // I could also add a header.className
+// header.innerHTML = `
+//   <h1 style="color: white; margin: 0;">amazon</h1>
+//   <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
+//     <input type="text" placeholder="Search" style="width: 500px; padding: 5px;" />
+
