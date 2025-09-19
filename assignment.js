@@ -53,8 +53,6 @@ main.style.backgroundColor = "white";
 const content = document.createElement("div");
 
 
-root.appendChild(main);
-
 function createAlertMessage() {
   alert("This is an alert message!");
 }
@@ -77,6 +75,14 @@ console.log(getWelcomeMessage("Mira")); // "Welcome, Mira!"
 console.log("10 / 2 =", divide(10, 2)); // 5
 console.log("4 x 3 =", multiply(4, 3)); // 12
 
+import { createProductList } from "./app.js";
+
+const productList = createProductList();
+main.appendChild(productList);
+
+root.appendChild(main);
+
+
 //* I could also add innerHTML, "header.innerHTML = `...` " but I wanted to practice creating elements and styling them with JS.
 
 //*I would need to add the JavaScript style (cdn) in the HTML file to see the changes in the browser. Then in my js file I would 
@@ -92,3 +98,17 @@ console.log("4 x 3 =", multiply(4, 3)); // 12
 //   <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
 //     <input type="text" placeholder="Search" style="width: 500px; padding: 5px;" />
 
+// class Product {
+// constructor(name,description,price) {
+// this.name = name;
+// this.description = description;
+// this.price = price;
+// }
+// render(parent) {
+// const product = document.createElement('div');
+// product.innerHTML = '
+// <h2>${this.name}</h2>
+// ';
+// parent.appendChild(product);
+// }
+// export default Product;
