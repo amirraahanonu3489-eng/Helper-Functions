@@ -9,7 +9,10 @@ const products = [
   { name: "Luxury Towel Set - Graphite Gray", price: 35.99 },
   { name: "Liquid Laundry Detergent, 110 Loads, 82.5 fl oz", price: 16.97 },
   { name: "Waterproof Knit Athletic Sneakers - Gray", price: 33.99 },
-  { name: "Women's Chiffon Beach Cover-Up -...", price: 20.70 }
+  { name: "Women's Chiffon Beach Cover-Up -...", price: 20.70 },
+  { name: "Round Sunglasses", price: 15.60 },
+  { name: "Women's Two Strap Buckle Sandals - Tan", price: 24.99},
+  { name: "Blackout Curtains Set 4-Pack - Beige", price: 45.99}
 ];
 
 export default products;
