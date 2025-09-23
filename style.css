@@ -4,6 +4,9 @@
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid #e7e5e5;
   padding: 15px;
   text-align: center;
@@ -12,9 +15,27 @@
 
 .product-card button {
   border: none;
-  border-radius: 20px;
-  background-color: rgb(255, 238, 0);
-  width: 170px;
+  background-color: pink;
   padding: 8px;
-  margin-top: 50px;
+}
+
+.product-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto 10px;
+}
+
+.product-card h3 {
+  font-size: 15px;
+}
+
+.product-card p {
+  margin: 20px;
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }

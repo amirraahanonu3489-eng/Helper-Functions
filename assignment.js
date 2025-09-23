@@ -4,15 +4,16 @@ const header = document.createElement("header");
 header.style.display = "flex";
 header.style.alignItems = "center";
 header.style.justifyContent = "space-between";
-header.style.padding = "10px 20px";
-header.style.backgroundColor = "black";
+header.style.padding = "0px 20px";
+header.style.backgroundColor = "#212121";
 
 const logo = document.createElement("h1");
-logo.style.color = "white";
-logo.style.margin = "0";
-logo.textContent = "amazon";
-logo.style.margin = "0px";
-logo.style.fontSize = "24px";
+logo.style.marginBottom = "2px";
+const logoImg = document.createElement("img");
+logoImg.src = "images/amazonlogo.jpg"; 
+logoImg.alt = "Amazon Logo";
+logoImg.style.height = "40px";
+logo.appendChild(logoImg);
 header.appendChild(logo);
 
 const searchContainer = document.createElement("div");
@@ -37,9 +38,10 @@ header.appendChild(searchContainer);
 
 const linksContainer = document.createElement("div");
 linksContainer.innerHTML = `
-    <span style="color: white; margin-right: 15px;">Returns & Orders</span>
-    <span style="color: white;">🛒 Cart</span>
-    <span style="color: yellow;">8</span>
+    <span style="color: pink; margin-right: 15px;">Returns & Orders</span>
+    <span style="color: pink;" id="cart">
+      🛒 Cart(<span id="cart-count">0</span>)
+    </span>
 `;
 header.appendChild(linksContainer);
 
@@ -51,11 +53,6 @@ main.style.alignItems = "center";
 main.style.backgroundColor = "white";
 
 const content = document.createElement("div");
-
-
-function createAlertMessage() {
-  alert("This is an alert message!");
-}
 
 function getWelcomeMessage(name) {
   return `Welcome, ${name}!`;
@@ -69,7 +66,6 @@ function multiply(a, b) {
   return a * b;
 }
 
-createAlertMessage();
 
 console.log(getWelcomeMessage("Mira")); // "Welcome, Mira!"
 console.log("10 / 2 =", divide(10, 2)); // 5
