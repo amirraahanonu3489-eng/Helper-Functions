@@ -1,56 +1,9 @@
+import { createHeader } from "./header.js";
+import { createProductList } from "./app.js";
+
 const root = document.getElementById("root");
-
-const header = document.createElement("header");
-header.style.display = "flex";
-header.style.alignItems = "center";
-header.style.justifyContent = "space-between";
-header.style.padding = "0px 20px";
-header.style.backgroundColor = "#212121";
-
-const logo = document.createElement("h1");
-logo.style.marginBottom = "2px";
-const logoImg = document.createElement("img");
-logoImg.src = "images/amazonlogo.jpg"; 
-logoImg.alt = "Amazon Logo";
-logoImg.style.height = "40px";
-logo.appendChild(logoImg);
-header.appendChild(logo);
-
-const searchContainer = document.createElement("div");
-searchContainer.style.flex = "1";
-searchContainer.style.display = "flex";
-searchContainer.style.justifyContent = "center";
-searchContainer.style.alignItems = "center";
-
-const searchInput = document.createElement("input");
-searchInput.type = "text";
-searchInput.placeholder = "Search";
-searchInput.style.width = "500px";
-searchInput.style.padding = "5px";
-
-const searchButton = document.createElement("button");
-searchButton.textContent = "🔍";
-searchButton.style.height = "30px";
-
-searchContainer.appendChild(searchInput);
-searchContainer.appendChild(searchButton);
-header.appendChild(searchContainer);
-
-const linksContainer = document.createElement("div");
-linksContainer.innerHTML = `
-    <span style="color: pink; margin-right: 15px;">Returns & Orders</span>
-    <span style="color: pink;" id="cart">
-      🛒 Cart(<span id="cart-count">0</span>)
-    </span>
-`;
-header.appendChild(linksContainer);
-
+const header = createHeader();
 root.appendChild(header);
-
-const main = document.createElement("main");
-main.style.display = "flex";
-main.style.alignItems = "center";
-main.style.backgroundColor = "white";
 
 const content = document.createElement("div");
 
@@ -71,7 +24,10 @@ console.log(getWelcomeMessage("Mira")); // "Welcome, Mira!"
 console.log("10 / 2 =", divide(10, 2)); // 5
 console.log("4 x 3 =", multiply(4, 3)); // 12
 
-import { createProductList } from "./app.js";
+const main = document.createElement("main");
+main.style.display = "flex";
+main.style.alignItems = "center";
+main.style.backgroundColor = "white";
 
 const productList = createProductList();
 main.appendChild(productList);

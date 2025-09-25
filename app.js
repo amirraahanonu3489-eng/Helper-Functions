@@ -5,6 +5,8 @@ export function createProductList() {
   const container = document.getElementById("products");
   const cartCount = document.getElementById("cart-count")
 
+  cartCount.textContent = cart.totalQuantity;
+
   products.forEach(product => {
     const card = document.createElement("div");
     card.classList.add("product-card");
