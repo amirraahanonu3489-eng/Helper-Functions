@@ -28,6 +28,21 @@ class Cart {
         localStorage.setItem("cartItems", JSON.stringify(this.items));
     }
 
+    updateItem(product, quantity) {
+        const existing = this.items.find(item => item.product.name === product.name);
+        
+        if (existing) {
+            if (quantity <= 0) {
+                this.removeItem(product);
+            } else {
+                existing.quantity = quantity;
+            }
+        } else if (quantity > 0) {
+            this.items.push({ product, quantity });
+        }
+            localStorage.setItem("cartItems", JSON.stringify(this.items));
+    }
+
     getItems() {
         return this.items;
     }

@@ -25,19 +25,47 @@ function renderCart() {
 
   items.forEach(item => {
     const div = document.createElement("div");
-    div.textContent = `${item.product.name} - $${item.product.price.toFixed(2)} x ${item.quantity}`;
+    div.innerHTML = `
+    <img src="${item.product.image}" alt="${item.product.name}" style="width:100px; height:100px; object-fit:cover;">
+    <div class="cart-details" style="flex:2;">
+      <p><strong>${item.product.name}</strong></p>
+      <p style="color:red;">$${item.product.price.toFixed(2)}</p>
+      <p>Quantity: ${item.quantity} 
+        <a href="#" class="update">Update</a> 
+        <a href="#" class="delete">Delete</a>
+      </p>
+    </div>
+  `;
 
-    const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Remove";
-    removeBtn.addEventListener("click", () => {
+    const delivery = document.createElement("div");
+    delivery.innerHTML = `
+      <p><strong>Choose a delivery option:</strong></p>
+      <label><input type="radio" checked> Free Shipping</label><br>
+      <label><input type="radio"> Express ($4.99)</label><br>
+      <label><input type="radio"> Overnight ($9.99)</label>
+    `;
+    div.appendChild(delivery);
+    
+    div.querySelector(".update").addEventListener("click", (e) => {
+      e.preventDefault();
+      const qty = parseInt(prompt("Enter new quantity:", item.quantity));
+      if (!isNaN(qty) && qty > 0) {
+        cart.updateItem(item.product, qty);
+        localStorage.setItem("cartItems", JSON.stringify(cart.getItems()));
+        renderCart();
+        document.getElementById("cart-count").textContent = cart.totalQuantity;
+      }
+    });
+
+    div.querySelector(".delete").addEventListener("click", (e) => {
+      e.preventDefault();
       cart.removeItem(item.product);
       localStorage.setItem("cartItems", JSON.stringify(cart.getItems()));
       renderCart();
-
-      document.getElementById("cart-count").textContent = cart.totalQuantity;
     });
 
-    div.appendChild(removeBtn);
+      document.getElementById("cart-count").textContent = cart.totalQuantity;
+
     cartItemsContainer.appendChild(div);
   });
 
